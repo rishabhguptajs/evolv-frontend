@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center m-2">
       <div className="flex justify-between w-full">
-        <div className="text-5xl text-black cursor-pointer hover:translate-x-1 hover:translate-y-1">Evolv</div>
+        <div className="text-6xl text-black font-semibold cursor-pointer transition-all hover:translate-x-1 text-shadow-yellowish-green hover:text-shadow-red hover:translate-y-1">Evolv</div>
         <Navbar />
       </div>
 
