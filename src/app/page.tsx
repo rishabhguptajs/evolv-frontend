@@ -1,5 +1,6 @@
 "use client";
 
+import CurvedDottedBorder from "@/components/Backgrounds/CurvedCircle";
 import Navbar from "@/components/Common/Navbar";
 
 export default function Home() {
@@ -10,16 +11,16 @@ export default function Home() {
         <Navbar />
       </div>
 
-      <div>
-        <div className="flex flex-col items-center py-10">
-            <p className="text-6xl font-medium text-center text-gray-800 mb-4">
-              Think. Grow.
-            </p>
-            <span className="text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-600 bg-opacity-70">
-              Evolve.
-            </span>
+      <div className="relative">
+        <CurvedDottedBorder variant="orange" width={600} height={400} />
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <p className="text-6xl font-medium text-center text-orange-950 mb-4">
+            Think. Grow.
+          </p>
+          <span className="text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-50 text-shadow-red bg-opacity-70">
+            Evolve.
+          </span>
         </div>
-        <div></div>
       </div>
     </div>
   );
