@@ -4,9 +4,9 @@ interface CurvedDottedBorderProps {
   variant: 'purple' | 'blue' | 'green' | 'orange';
   width?: number;
   height?: number;
-  borderRadius?: string; 
-  animationDuration?: string; 
-  animationDelay?: string; 
+  borderRadius?: string;
+  animationDuration?: string;
+  animationDelay?: string;
 }
 
 const gradientMap = {
@@ -16,7 +16,7 @@ const gradientMap = {
   orange: 'from-orange-400/40 via-red-500/30 to-orange-600/40'
 }
 
-const CurvedDottedBorder: React.FC<CurvedDottedBorderProps> = ({ 
+const CurvedDottedBorder: React.FC<CurvedDottedBorderProps> = ({
   variant = 'blue',
   width = 500,
   height = 300,
@@ -24,30 +24,50 @@ const CurvedDottedBorder: React.FC<CurvedDottedBorderProps> = ({
   animationDuration = '8s',
   animationDelay = '0s'
 }) => {
+  const borderRadiusStyle = {
+    borderRadius: borderRadius
+  };
+
   return (
-    <div 
+    <div
       className="relative"
       style={{
         width: `${width}px`,
         height: `${height}px`
       }}
     >
-      <div 
-        className={`absolute inset-0 rounded-[${borderRadius}] bg-gradient-to-br ${gradientMap[variant]} blur-md`}
+      <div
+        className={`absolute inset-0 bg-gradient-to-br ${gradientMap[variant]} blur-md`}
         style={{
-          animation: `morph ${animationDuration} ease-in-out infinite ${animationDelay}`
+          ...borderRadiusStyle,
+          animation: `morph ${animationDuration} ease-in-out infinite ${animationDelay}`,
+          WebkitAnimation: `morph ${animationDuration} ease-in-out infinite ${animationDelay}`,
         }}
       />
 
       <div
-        className={`absolute inset-4 rounded-[${borderRadius}] bg-gradient-to-br ${gradientMap[variant]} opacity-40 blur-sm`}
+        className={`absolute inset-4 bg-gradient-to-br ${gradientMap[variant]} opacity-40 blur-sm`}
         style={{
-          animation: `morph ${animationDuration} ease-in-out infinite reverse ${animationDelay}`
+          ...borderRadiusStyle,
+          animation: `morph ${animationDuration} ease-in-out infinite reverse ${animationDelay}`,
+          WebkitAnimation: `morph ${animationDuration} ease-in-out infinite reverse ${animationDelay}`,
         }}
       />
 
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes morph {
+          0% {
+            border-radius: ${borderRadius};
+          }
+          50% {
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+          }
+          100% {
+            border-radius: ${borderRadius};
+          }
+        }
+        
+        @-webkit-keyframes morph {
           0% {
             border-radius: ${borderRadius};
           }
