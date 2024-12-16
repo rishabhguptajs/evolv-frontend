@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Habit Tracker App**
 
-## Getting Started
+## **Overview**
+The Habit Tracker App is a powerful tool designed to help users establish and maintain positive habits, achieve their goals, and visualize their progress with gamified elements. It provides an engaging and user-friendly experience through a combination of habit tracking, goal management, AI-powered insights, and gamification features.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## **Features**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Frontend Features**
+- **User Authentication**
+  - JWT-based sign-up, login, and password recovery.
+  - Persistent user sessions with secure local storage.
+  - Responsive login/register UI with form validation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Habit Tracker**
+  - Add, edit, update, and delete habits.
+  - Track habits on a daily/weekly basis.
+  - Visual indicators for completed habits and streaks.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Goal Management**
+  - Create, update, and delete personal goals.
+  - Track progress with milestones and percentage completion.
+  - Goal summary view with analytics.
 
-## Learn More
+- **Gamification**
+  - Earn badges for achievements (e.g., streaks, completed goals).
+  - Points system for rewarding consistency and activity.
+  - Level-up mechanism based on accumulated points.
+  - Profile section showcasing badges, points, and levels.
 
-To learn more about Next.js, take a look at the following resources:
+- **Visualization & Analytics**
+  - Historical data visualization using charts and graphs.
+  - Habit streak trends and goal completion rates.
+  - AI-driven future projections of habits and goals.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Notifications**
+  - Habit reminders and streak alerts.
+  - Milestone achievements notifications.
+  - Daily motivational messages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Responsive Design**
+  - Fully responsive for both mobile and desktop devices.
+  - Accessible and user-friendly UI with dark mode support.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **Backend Features**
+- **User Management**
+  - User authentication using JWT.
+  - Secure password hashing (bcrypt).
+  - API routes for user registration, login, and profile updates.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Habit Management**
+  - CRUD operations for habits.
+  - Habit streaks tracking and auto-reset for missed days.
+  - APIs to fetch and update habit data.
+
+- **Goal Management**
+  - CRUD operations for goals.
+  - APIs for goal progress updates and milestone tracking.
+  - Data validation for goal creation and updates.
+
+- **Gamification System**
+  - Badge system with predefined criteria.
+  - Points and leveling mechanism based on user activities.
+  - APIs for fetching user achievements, points, and levels.
+
+- **Notifications**
+  - Scheduled reminders using `node-cron`.
+  - APIs for managing notification preferences.
+  - Integration with email services for habit and milestone alerts.
+
+- **Visualization**
+  - Backend logic for analytics and AI-powered habit projections.
+  - APIs serving historical and projection data for frontend visualization.
+
+---
+
+## **Project Structure**
+
+### **Frontend**
+- **Framework**: Next.js with TypeScript.
+- **State Management**: Context API or Redux (if implemented).
+- **UI Libraries**: TailwindCSS for styling and responsiveness.
+
+
+### **Backend**
+- **Framework**: Node.js with Express.
+- **Database**: MongoDB.

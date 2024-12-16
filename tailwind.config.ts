@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 export default {
   content: [
@@ -12,24 +12,35 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0) scale(1)",
+          },
+          "50%": {
+            transform: "translateY(-20px) scale(1.05)",
+          },
+        },
+        "float-delayed": {
+          "0%, 100%": {
+            transform: "translateY(0) scale(1.05)",
+          },
+          "50%": {
+            transform: "translateY(-20px) scale(1)",
+          },
+        },
+      },
+      animation: {
+        float: "float 12s ease-in-out infinite",
+        "float-delayed": "float-delayed 14s ease-in-out infinite 1s",
+      },
+      backgroundImage: {
+        noise: "url('/noise.png')",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
     },
   },
-  plugins: [
-    function ({ addUtilities }: { addUtilities: (utilities: Record<string, any>) => void }) {
-      addUtilities({
-        ".text-shadow-sharp": {
-          textShadow: "2px 2px 0px rgba(0, 0, 0, 1)",
-        },
-        ".text-shadow-large": {
-          textShadow: "4px 4px 0px rgba(0, 0, 0, 1)",
-        },
-        ".text-shadow-red": {
-          textShadow: "2px 2px 0px rgba(255, 0, 0, 1)",
-        },
-        ".text-shadow-yellowish-green": {
-          textShadow: "3px 3px 0px rgba(173, 255, 47, 1)",
-        },
-      });
-    },
-  ],
-} satisfies Config;
+  plugins: [],
+} satisfies Config
