@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
@@ -88,13 +89,13 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-4 lg:gap-6">
             <button className="relative text-xs lg:text-sm text-white/70 hover:text-white transition-colors duration-300 overflow-hidden group">
-              <span className="relative z-10">Log in</span>
+              <Link href="/login" className="relative z-10">Log in</Link>
               <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-purple-500/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"/>
             </button>
             <button className="relative px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-purple-600"/>
               <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
-              <span className="relative text-xs lg:text-sm font-medium">Get Started</span>
+              <Link href="/signup" className="relative text-xs lg:text-sm font-medium">Get Started</Link>
             </button>
           </div>
         </div>
