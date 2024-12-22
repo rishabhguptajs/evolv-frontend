@@ -130,7 +130,7 @@ export default function SignupPage() {
                 <div className="w-full border-t border-white/10" />
               </div>
               <div className="relative flex justify-center text-xs">
-                <span className="px-2 bg-[#0A0A0F] text-white/60">Or continue with</span>
+                <span className="px-2 bg-white/95 backdrop-blur-sm border border-white/10 text-black/80 rounded-md">or</span>
               </div>
             </div>
 
