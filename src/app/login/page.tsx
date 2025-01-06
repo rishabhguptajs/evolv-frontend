@@ -1,43 +1,33 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import SocialLogin from "@/components/auth/SocialLogin"
 import { FiLock } from "react-icons/fi"
+import { useAppDispatch, useAppSelector } from '@/redux/hooks'
+import { login, resetError } from '@/redux/features/authSlice'
 
 export default function LoginPage() {
+  const dispatch = useAppDispatch()
+  const { loading, error } = useAppSelector((state) => state.auth)
   const router = useRouter()
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   })
-  const [error, setError] = useState("")
+
+  useEffect(() => {
+    dispatch(resetError())
+  }, [dispatch])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-          credentials: "include",
-        }
-      )
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.message || "Login failed")
-      }
-
-      router.push("/dashboard")
-    } catch (err: any) {
-      setError(err.message)
+    
+    const result = await dispatch(login(formData))
+    
+    if (login.fulfilled.match(result)) {
+      router.push('/dashboard')
     }
   }
 
